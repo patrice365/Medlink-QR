@@ -1,11 +1,58 @@
-@import 'tailwindcss';
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Cormorant+SC:wght@600;700&display=swap');
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+body {
+  background-color: #f7f8fc;
+  color: #0f1226;
+  font-family: 'Outfit', 'Urbanist', 'Poppins', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+/* LNU header: deep navy into royal blue, with a thin gold rule. White text stays above 7:1 contrast across the full gradient. */
+.bg-lnu-header {
+  background-color: #0a0a5c;
+  background-image: linear-gradient(100deg, #0a0a5c 0%, #0b1a7e 55%, #0c2aa6 100%);
+  border-bottom: 2px solid #e2b640;
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+  .print-area .print-scroll {
+    overflow: visible !important;
+  }
+  .print-area .no-print {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
